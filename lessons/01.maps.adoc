@@ -1,0 +1,52 @@
+== Maps (basic)
+
+The most powerful data-structure in Elixir is the `map`.
+Sometimes it is called a hash-map.
+The key property of a map is that it stores `keys` and `values`.
+
+Let's define a couple of maps
+
+[source,elixir]
+----
+m1 = %{"name" =>  "Anna"}
+m2 = %{"age" => 12}
+
+m3 = %{"a" => 1, "b" => 2, "c" => 3}
+----
+
+It is easy to get keys from maps
+
+[source,elixir]
+----
+m3 = %{"a" => 1, "b" => 2, "c" => 3}
+
+m3["a"] # 1
+m3["b"] # 2
+m3["c"] # 3
+
+m3["q"] # nil
+----
+
+However, maps can be much more flexible.
+Especially they are not tied to a specific type
+like in C++ or Java:
+
+[source,elixir]
+----
+m4 = %{1 => 1, 2 => "banan", false => "123" }
+
+m4[1]     # 1
+m4[2]     # "banan"
+m4[false] # "123"
+----
+
+Moreover, they can be nested:
+
+[source,elixir]
+----
+m5 = %{1 => %{"name" => "Anna", "age" => 30},
+       2 => %{"name" => "Lisa", "age" => 42}}
+
+m5[1]["name"] # "Anna"
+m5[2]["age"]  # 42
+----
