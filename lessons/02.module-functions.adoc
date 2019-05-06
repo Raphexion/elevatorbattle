@@ -1,0 +1,44 @@
+== Modules and functions (basics)
+
+Elixir is a functional language so functions
+are naturally very important.
+
+To define functions use the keyword `def`:
+
+[source,elixir]
+----
+def add(x, y) do
+  x + y
+end
+----
+
+Note that elixir does not need types.
+Elixir is typed language but we don't have to
+specify the times (normally).
+
+Moreover, notice that we don't have to specify what to return.
+Thus we don't need a `return` statement.
+The last statement is returned.
+
+=== Modules
+
+All functions must be defined in a module.
+The simplest definition of a module is that it wraps functions.
+
+We define a module with `defmodule`.:
+
+[source,elixir]
+----
+defmodule MyModule do
+  def add(x, y) do
+    x + y
+  end
+
+  def sub(x, y) do
+    x - y
+  end
+end
+----
+
+Note, module should always start with a capital letter in
+Elixit. (Warning, in Erlang it is lower-case).
