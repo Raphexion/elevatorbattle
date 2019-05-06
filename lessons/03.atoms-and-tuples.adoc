@@ -1,0 +1,59 @@
+== Atoms and Tuples
+
+Atoms and Tuples are often used together so let's present
+them together
+
+=== Atoms
+
+Elixir is full of *atoms* and they are very important.
+Fortunately they are very easy to understand.
+
+Let's give a couple of examples:
+
+[source,elixir]
+----
+:ok
+:my_name_is_niklas
+:error
+----
+
+They are used very similar to how *Enum*s are used in C/C++
+and Java.
+
+I think them as tags that great to communicate information with.
+They are much lighter than strings and provides some safety.
+
+WARNING: Atoms are _not_ garbage collected.
+
+=== Tuples
+
+A tuple is a *grouping* of data.
+So if we want to communicate that something is "successful" and the result is 42 we can write:
+
+[source,elixir]
+----
+{:ok, 42}
+----
+
+Or if something is wrong ; we can write:
+
+[source,elixir]
+----
+{:error, :file_missing}
+----
+
+There is not practical limit to the elements in a tuple.
+And you can mix types.
+So it is possible to write:
+
+[source,elixir]
+----
+{:ok, "my age", :is, 37}
+----
+
+And they can of-course be nested
+
+[source,elixir]
+----
+{:ok, {:ok, 1, 2, 3}, :blue, :green}
+----
