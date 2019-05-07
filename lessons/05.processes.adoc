@@ -1,0 +1,65 @@
+== Process
+
+Processes are first-class-citizens in Elixir.
+In object oriented languages we model the word with classes and objects (Java).
+
+In Elixir it is very cheap to start and run processes.
+This is because processes are *green threads*.
+Which means that they are scheduled by the virtual machine and not the operating system.
+
+It is trial to start a new thread.
+This is done with the `spawn` keyword.
+
+However, let's first introduce anonymous functions (functions without names).
+
+[source,elixir]
+----
+# define the function
+f1 = fun x, y -> x + y + 1 end
+
+# call the function
+f1.(1, 2)  # 4
+----
+
+We can also make anonymous functions that take zero arguments.
+
+[source,elixir]
+----
+# define the function
+f0 = fn -> IO.puts "Hello from the other side" end
+
+# call the function
+f0.()
+Hello from the other side
+----
+
+
+=== Spawning our first function
+
+Let's spawn our first function
+
+[source,elixir]
+----
+# first we define the function
+printer = fn -> IO.puts "my pid: #{inspect self()}"
+
+# we run it a couple of times to see that we get the same result
+printer.()
+my pid: #PID<0.103.0>
+
+printer.()
+my pid: #PID<0.103.0>
+
+printer.()
+my pid: #PID<0.103.0>
+
+# then we run it in another process
+spawn(printer)
+my pid: #PID<0.139.0>
+
+spawn(printer)
+my pid: #PID<0.141.0>
+
+spawn(printer)
+my pid: #PID<0.143.0>
+----
