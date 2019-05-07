@@ -20,6 +20,15 @@ Moreover, notice that we don't have to specify what to return.
 Thus we don't need a `return` statement.
 The last statement is returned.
 
+Calling a function in Elixir is very flexible.
+Both of these works
+
+[source,elixir]
+----
+add(1, 2)  # 3
+add 1, 2   # 3
+----
+
 === Modules
 
 All functions must be defined in a module.
@@ -42,3 +51,12 @@ end
 
 Note, module should always start with a capital letter in
 Elixit. (Warning, in Erlang it is lower-case).
+
+=== Debug statement
+
+To print something to the console, use `IO.puts`.
+
+[source,elixir]
+----
+IO.puts "Hello, World!"
+----
