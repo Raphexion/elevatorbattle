@@ -9,3 +9,5 @@ include::03.atoms-and-tuples.adoc[]
 include::04.pattern-matching.adoc[]
 
 include::05.processes.adoc[]
+
+include::A.hands-on.adoc[]

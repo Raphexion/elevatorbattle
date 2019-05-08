@@ -8,30 +8,26 @@ Let's play with maps. What is the result of the following
 ----
 iex -S mix
 
-#
 %{"name" => "Anna", "age" => 23}
 
-#
 %{1 => 2, 2 => 3}
 
-#
 w1 = %{:weather => :snow}
 
-#
 w1[:weather]
 
-#
 w1[:keepfocus]
 ----
 
-Syntactic sugar for maps with atoms
+Syntactic sugar for maps with atoms.
+What is the difference between these two?
 
 [source,elixir]
 ----
-# What is the difference between these two
 
 %{:name => "Anna"}
 %{"name" => "Anna"}
+----
 
 === Pattern Matching
 
@@ -49,10 +45,8 @@ What is the result of the following two queries?
 
 [source,elixir]
 ----
-# Question 1
 person[:name]
 
-# Question 2
 person[:age]
 ----
 
@@ -61,10 +55,8 @@ What is the result of the following two queries?
 
 [source,elixir]
 ----
-# Question 3
 Person.name(person)
 
-# Question 4
 Person.age(person)
 ----
 
