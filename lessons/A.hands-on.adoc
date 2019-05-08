@@ -1,0 +1,76 @@
+== Hands-on
+
+=== Maps
+
+Let's play with maps. What is the result of the following
+
+[source,elixir]
+----
+iex -S mix
+
+#
+%{"name" => "Anna", "age" => 23}
+
+#
+%{1 => 2, 2 => 3}
+
+#
+w1 = %{:weather => :snow}
+
+#
+w1[:weather]
+
+#
+w1[:keepfocus]
+----
+
+Syntactic sugar for maps with atoms
+
+[source,elixir]
+----
+# What is the difference between these two
+
+%{:name => "Anna"}
+%{"name" => "Anna"}
+
+=== Pattern Matching
+
+Play with pattern matching.
+
+[source,elixir]
+----
+iex -S mix
+
+iex(1)> alias ElevatorBattle.Part0.Person
+iex(2)> person = %{name: "Anna", age: 23}
+----
+
+What is the result of the following two queries?
+
+[source,elixir]
+----
+# Question 1
+person[:name]
+
+# Question 2
+person[:age]
+----
+
+
+What is the result of the following two queries?
+
+[source,elixir]
+----
+# Question 3
+Person.name(person)
+
+# Question 4
+Person.age(person)
+----
+
+What do you think this commands does?
+
+[source,elixir]
+----
+iex(7)> IEx.Helpers.recompile
+----
