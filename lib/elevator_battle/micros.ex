@@ -13,6 +13,7 @@ defmodule ElevatorBattle.Micros do
   # alias ElevatorBattle.Micros
   # > spawn(fn -> Micros.die_soon() end)
   # > spawn_link(fn -> Micros.die_soon() end)
+  # > spawn_monitor(fn -> Micros.die_soon() end)
   def die_soon() do
     :timer.sleep(1000)
     die()
