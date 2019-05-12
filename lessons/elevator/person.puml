@@ -1,0 +1,18 @@
+@startuml
+
+[*] --> Waiting
+
+Waiting --> TryElevator : DoorOpens
+Waiting: Person is waiting for elevator
+
+TryElevator --> Waiting : ElevatorFull
+TryElevator --> InElevator : ElevatorOK
+
+InElevator --> TryExit : DoorOpens
+
+TryExit --> Arrived : CorrectFloor
+TryExit --> InElevator : WrongFloor
+
+Arrived --> [*]
+
+@enduml
