@@ -1,0 +1,80 @@
+== Pattern Matching
+
+Elixir has deep roots in logic programming (prolog).
+One amazing feature from these roots is *pattern matching*.
+
+This concept is very easy but can be hard for beginners.
+The key problem is the equal sign (`=`).
+
+We are used to write:
+
+[source,elixir]
+----
+x = 1
+y = 41
+z = x + y
+----
+
+Which is perfectly fine in Elixir.
+However, we can also write:
+
+[source,elixir]
+----
+{:ok, name} = {:ok, "Anna"}  # name assigned to "Anna"
+{x, y, z} = {1, 2, :snow}    # x = 1
+                             # y = 2
+			     # z = 3
+----
+
+If it *doesn't match* we get an error.
+For example:
+
+[source,elixir]
+----
+{:ok, name} = {:error, :name_missing}
+
+** (MatchError) no match of right hand side value:
+{:error, :name_missing}
+----
+
+This sets us up for *pattern matching*.
+Pattern matching can be done anywhere.
+
+Let's start with pattern matching that is similar to
+the normal case statement.
+
+NOTE: IO.puts is Elixir's print statement
+
+[source,elixir]
+----
+case res of
+  {:ok, name} ->
+    IO.puts "Her name was #{name}"
+
+  {:error, :name_missing} ->
+    IO.puts "No name found"
+
+  _ ->
+    IO.puts "Unknown error"
+end
+----
+
+However, when pattern matchin really shines is in functions.
+This is one of the absolutely magics of Elixir.
+
+We can overload functions with pattern matching.
+
+[source,elixir]
+----
+def process_name({:ok, name}) do
+  IO.puts "Her name was #{name}"
+end
+
+def process_name({:error, :name_missing}) do
+  IO.puts "No name found"
+end
+
+def process_name(_) do
+  IO.puts "Unknown error"
+end
+----
